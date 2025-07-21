@@ -35,9 +35,6 @@ task-manager-ai-backend-system/
 ├── requirements.txt
 └── run.py
 
-yaml
-Copy
-Edit
 
 ---
 
@@ -100,6 +97,36 @@ GET	/send-email-test	Trigger test email summary
 🧪 Running Tests
 
 pytest
+✅ Running Tests
+This project uses pytest for testing.
+
+🔧 Test Setup
+Make sure your virtual environment is activated:
+source .venv/bin/activate    # Mac/Linux
+.venv\Scripts\activate       # Windows
+Set the PYTHONPATH to the current directory so that modules resolve correctly:
+# Windows
+set PYTHONPATH=.
+
+# Mac/Linux
+export PYTHONPATH=.
+Run all tests:
+
+pytest tests/
+🧪 Notes
+Uses an in-memory SQLite database (sqlite:///:memory:) for isolated, fast tests.
+
+Tests include:
+
+✅ test_ai.py – AI task analysis
+
+✅ test_api.py – API endpoint checks
+
+✅ test_email.py – Email summary sending
+
+Deprecation warnings (e.g., datetime.utcnow() warning) do not affect test results but may be addressed in future updates.
+
+
 👨‍💻 Author
 Praveen Rupineni
 GitHub • LinkedIn
