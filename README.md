@@ -94,6 +94,99 @@ PUT	/tasks/<id>	Update a task
 DELETE	/tasks/<id>	Delete a task
 GET	/send-email-test	Trigger test email summary
 
+📚 API Documentation with Sample Requests/Responses
+🔹 GET /
+Description: Health check for the API.
+Response:
+
+{
+  "message": "Task Management API is running!"
+}
+🔹 POST /tasks
+Description: Create a new task.
+Request Body:
+
+
+{
+  "title": "Complete Assessment",
+  "description": "Finish all tasks in the backend project",
+  "priority": "high",
+  "assigned_to": "Praveen",
+  "assigned_email": "praveen@example.com",
+  "due_date": "2025-12-31",
+  "department": "Engineering",
+  "estimated_hours": 5
+}
+Response:
+
+
+{
+  "message": "Task created successfully"
+}
+🔹 GET /tasks
+Description: Retrieve all tasks.
+Response:
+
+[
+  {
+    "id": 1,
+    "title": "Complete Assessment",
+    "status": "pending",
+    "priority": "high",
+    "assigned_to": "Praveen",
+    "due_date": "2025-12-31",
+    "ai_analyzed_priority": "urgent",
+    ...
+  }
+]
+🔹 GET /tasks/<id>
+Description: Retrieve a single task by ID.
+Example: GET /tasks/1
+Response:
+
+
+{
+  "id": 1,
+  "title": "Complete Assessment",
+  "description": "Finish all tasks in the backend project",
+  "status": "pending",
+  "priority": "high",
+  ...
+}
+🔹 PUT /tasks/<id>
+Description: Update a task.
+Example: PUT /tasks/1
+Request Body:
+
+
+{
+  "status": "in_progress"
+}
+Response:
+
+
+{
+  "message": "Task updated successfully"
+}
+🔹 DELETE /tasks/<id>
+Description: Delete a task.
+Example: DELETE /tasks/1
+Response:
+
+
+{
+  "message": "Task deleted successfully"
+}
+🔹 GET /send-email-test
+Description: Sends a test summary email for today's tasks.
+
+Response:
+
+
+{
+  "message": "Daily summary email sent (if tasks found)."
+}
+
 🧪 Running Tests
 
 pytest
