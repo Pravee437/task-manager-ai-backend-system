@@ -48,23 +48,20 @@ Edit
 ```bash
 git clone https://github.com/Pravee437/task-manager-ai-backend-system.git
 cd task-manager-ai-backend-system
+
+
 2️⃣ Create a virtual environment
-bash
-Copy
-Edit
 python -m venv .venv
 source .venv/bin/activate     # On Windows: .venv\Scripts\activate
-3️⃣ Install dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-4️⃣ Configure your .env file
-Create a .env file and add:
 
-env
-Copy
-Edit
+
+3️⃣ Install dependencies
+
+pip install -r requirements.txt
+
+4️⃣ Configure your .env file
+
+Create a .env file and add:
 MYSQL_HOST=localhost
 MYSQL_USER=root
 MYSQL_PASSWORD=your_mysql_password
@@ -77,23 +74,18 @@ OPENAI_API_KEY=your_openai_api_key
 ⚠️ Never commit your real .env file.
 
 5️⃣ Run migrations
-bash
-Copy
-Edit
+
 flask db init       # Only once
 flask db migrate -m "Initial migration"
 flask db upgrade
+
 6️⃣ Start the server
-bash
-Copy
-Edit
+
 python run.py
 📬 Test Email Endpoint
 Send a test daily summary email (if any tasks assigned):
 
-http
-Copy
-Edit
+
 GET /send-email-test
 📦 API Endpoints
 Method	Endpoint	Description
@@ -106,9 +98,7 @@ DELETE	/tasks/<id>	Delete a task
 GET	/send-email-test	Trigger test email summary
 
 🧪 Running Tests
-bash
-Copy
-Edit
+
 pytest
 👨‍💻 Author
 Praveen Rupineni
