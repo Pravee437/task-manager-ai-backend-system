@@ -95,17 +95,26 @@ DELETE	/tasks/<id>	Delete a task
 GET	/send-email-test	Trigger test email summary
 
 📚 API Documentation with Sample Requests/Responses
-🔹 GET /
-Description: Health check for the API.
+Base URL: http://localhost:5000
+
+🟢 GET /
+Description: API health check
+URL: http://localhost:5000/
 Response:
+
+json:
 
 {
   "message": "Task Management API is running!"
 }
-🔹 POST /tasks
-Description: Create a new task.
+
+🟡 POST /tasks
+Description: Create a new task
+URL: http://localhost:5000/tasks
+Method: POST
 Request Body:
 
+json
 
 {
   "title": "Complete Assessment",
@@ -119,13 +128,19 @@ Request Body:
 }
 Response:
 
+json:
 
 {
   "message": "Task created successfully"
 }
-🔹 GET /tasks
-Description: Retrieve all tasks.
+
+🟢 GET /tasks
+Description: Get all tasks
+URL: http://localhost:5000/tasks
+Method: GET
 Response:
+
+json:
 
 [
   {
@@ -134,54 +149,68 @@ Response:
     "status": "pending",
     "priority": "high",
     "assigned_to": "Praveen",
-    "due_date": "2025-12-31",
     "ai_analyzed_priority": "urgent",
+    "due_date": "2025-12-31",
     ...
   }
 ]
-🔹 GET /tasks/<id>
-Description: Retrieve a single task by ID.
-Example: GET /tasks/1
+
+🟢 GET /tasks/<id>
+Description: Get a specific task by ID
+URL: http://localhost:5000/tasks/1
+Method: GET
 Response:
 
+json:
 
 {
   "id": 1,
   "title": "Complete Assessment",
-  "description": "Finish all tasks in the backend project",
   "status": "pending",
   "priority": "high",
+  "assigned_to": "Praveen",
+  "ai_analyzed_priority": "urgent",
   ...
 }
-🔹 PUT /tasks/<id>
-Description: Update a task.
-Example: PUT /tasks/1
+
+🔄 PUT /tasks/<id>
+Description: Update a task
+URL: http://localhost:5000/tasks/1
+Method: PUT
 Request Body:
 
+json:
 
 {
   "status": "in_progress"
 }
 Response:
 
+json:
 
 {
   "message": "Task updated successfully"
 }
-🔹 DELETE /tasks/<id>
-Description: Delete a task.
-Example: DELETE /tasks/1
+
+❌ DELETE /tasks/<id>
+Description: Delete a task by ID
+URL: http://localhost:5000/tasks/1
+Method: DELETE
 Response:
 
+json:
 
 {
   "message": "Task deleted successfully"
 }
-🔹 GET /send-email-test
-Description: Sends a test summary email for today's tasks.
 
+📬 GET /send-email-test
+Description: Send a test daily summary email for today's assigned tasks
+URL: http://localhost:5000/send-email-test
+Method: GET
 Response:
 
+json:
 
 {
   "message": "Daily summary email sent (if tasks found)."
