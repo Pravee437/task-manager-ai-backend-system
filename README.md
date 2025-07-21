@@ -11,7 +11,7 @@
 
 > 🚀 **Built as part of the Emergence Software Assessment**
 
-[Features](#-features) • [Setup](#-setup-instructions) • [API Docs](#-api-documentation) • [Testing](#-running-tests)
+[Features](#-features) • [Setup](#-setup-instructions) • [API Docs](#-api-documentation-with-sample-requestsresponses) • [Testing](#-running-tests)
 
 </div>
 
@@ -342,5 +342,9 @@ This project is part of a private assessment and is not currently open for comme
 **🚀 Built for Emergence Software Assessment**
 
 *Showcasing AI-powered backend development with Flask and OpenAI*
+
+---
+
+**💼 I am excited about the opportunity to join Emergence and would be thrilled to contribute to your innovative projects. Thank you for taking the time to review this technical assessment - I look forward to discussing how my skills can add value to your team!**
 
 </div>
