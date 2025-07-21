@@ -1,114 +1,118 @@
-# 🧠 Task Manager Backend System — AI Enhanced (Emergence Assessment)
+# 🧠 Task Manager AI Backend System
 
-## 🚀 Overview
+An AI-powered task management backend built with Flask, SQLAlchemy, and MySQL. This system supports full CRUD operations, OpenAI integration for smart task analysis, and automated email notifications using Flask-Mail.
 
-This is a backend system built with Flask for managing tasks. It includes full CRUD operations, AI-powered task analysis using OpenAI, and daily email notifications to assigned users. The project is structured for easy deployment and testing.
+> 🚀 Built as part of the Emergence Software Assessment
 
 ---
 
-## 🛠️ Tech Stack
+## ⚙️ Features
 
-- **Backend:** Flask, Flask-SQLAlchemy
-- **Database:** MySQL
-- **AI Integration:** OpenAI GPT-3.5
-- **Email Notifications:** Flask-Mail (Gmail SMTP)
-- **Task Scheduler:** APScheduler
-- **Testing:** Pytest
+- ✅ RESTful API with Flask
+- 🧠 AI-based priority, risk, and urgency analysis using OpenAI
+- 📬 Daily email summaries using Flask-Mail
+- 🔒 Environment variable support via `.env`
+- 🧪 Unit testing with `pytest`
+- 📊 SQLAlchemy models with Flask-Migrate
+
+---
+
+## 📁 Project Structure
+
+task-manager-ai-backend-system/
+├── app/
+│ ├── init.py
+│ ├── models.py
+│ ├── routes.py
+│ ├── config.py
+│ ├── ai.py
+│ └── email_service.py
+├── migrations/
+├── tests/
+│ └── test_routes.py
+├── .env # Not committed — contains secrets
+├── .gitignore
+├── requirements.txt
+└── run.py
+
+yaml
+Copy
+Edit
 
 ---
 
 ## 🔧 Setup Instructions
 
-### 1. Clone the Repository
+### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/task-manager-backend.git
-cd task-manager-backend
-2. Create a .env File
-Create a .env file in the root directory with the following content:
-
-env
+git clone https://github.com/Pravee437/task-manager-ai-backend-system.git
+cd task-manager-ai-backend-system
+2️⃣ Create a virtual environment
+bash
 Copy
 Edit
-# MySQL Config
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=yourpassword
-MYSQL_DB=task_manager
-
-# OpenAI Key
-OPENAI_API_KEY=your_openai_key
-
-# Email Config (Gmail SMTP)
-MAIL_USERNAME=yourgmail@gmail.com
-MAIL_PASSWORD=your_gmail_app_password
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=True
-⚠️ Note: Use a Gmail App Password (from https://myaccount.google.com/apppasswords)
-
-3. Install Dependencies
+python -m venv .venv
+source .venv/bin/activate     # On Windows: .venv\Scripts\activate
+3️⃣ Install dependencies
 bash
 Copy
 Edit
 pip install -r requirements.txt
-4. Initialize the Database
+4️⃣ Configure your .env file
+Create a .env file and add:
+
+env
+Copy
+Edit
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=your_mysql_password
+MYSQL_DB=task_manager
+
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+
+OPENAI_API_KEY=your_openai_api_key
+⚠️ Never commit your real .env file.
+
+5️⃣ Run migrations
 bash
 Copy
 Edit
-# Windows
-set FLASK_APP=run.py
-
-# Linux/macOS
-export FLASK_APP=run.py
-
 flask db init       # Only once
-flask db migrate -m "initial"
+flask db migrate -m "Initial migration"
 flask db upgrade
-5. Run the Server
+6️⃣ Start the server
 bash
 Copy
 Edit
 python run.py
-📬 Email Notification System
-A daily summary email is automatically sent at 9:00 AM (if any tasks exist).
+📬 Test Email Endpoint
+Send a test daily summary email (if any tasks assigned):
 
-You can manually test it using this endpoint:
-
-bash
+http
 Copy
 Edit
-GET http://localhost:5000/send-email-test
-🤖 AI Features
-Each task is analyzed using OpenAI’s GPT-3.5:
-
-Auto-generates ai_analysis
-
-Calculates urgency_score
-
-Predicts ai_analyzed_priority
-
-📮 API Endpoints
+GET /send-email-test
+📦 API Endpoints
 Method	Endpoint	Description
+GET	/	Welcome message
 POST	/tasks	Create a new task
 GET	/tasks	Get all tasks
-GET	/tasks/<id>	Get a specific task
+GET	/tasks/<id>	Get a task by ID
 PUT	/tasks/<id>	Update a task
 DELETE	/tasks/<id>	Delete a task
-GET	/send-email-test	Send daily summary email
+GET	/send-email-test	Trigger test email summary
 
-🧪 Testing
-Run all tests using:
-
+🧪 Running Tests
 bash
 Copy
 Edit
-pytest tests/
-🔬 Postman Collection
-A Postman collection is provided for testing:
+pytest
+👨‍💻 Author
+Praveen Rupineni
+GitHub • LinkedIn
 
-bash
-Copy
-Edit
-postman/task_manager_collection.json
-You can import it directly into Postman and test all endpoints.
+📄 License
+This project is part of a private assessment and is not currently open for commercial use.
