@@ -1,4 +1,5 @@
 
+#
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
@@ -12,9 +13,9 @@ db = SQLAlchemy()
 mail = Mail()
 migrate = Migrate()
 
-def create_app():
+def create_app(config_class=Config):  # Accept custom config class
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
 
     db.init_app(app)
     mail.init_app(app)
@@ -24,4 +25,3 @@ def create_app():
     app.register_blueprint(api_blueprint)
 
     return app
-
