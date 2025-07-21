@@ -7,3 +7,4 @@ flask-mail
 python-dotenv
 apscheduler
 pytest
+cryptography
