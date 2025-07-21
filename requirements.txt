@@ -1,0 +1,9 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+openai
+pymysql
+flask-mail
+python-dotenv
+apscheduler
+pytest
